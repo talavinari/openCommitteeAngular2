@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="cards col-md-12">
+            <section class="card card-list card-list-latest compact">
+                <header>
+                    <h2>
+                        שרי הממשלה
+                    </h2>
+                </header>
+                <ul>
+                    <li>
+                        <div class="ministers">
+                            <div *ngFor="let minister of ministers" class="minister-big-photo {% if m.votes.count == 0 %} disabled {% endif %}">
+                                <a routerLink='/minister/{{minister.id}}'>
+                                    <img src="{{ minister.photo_url}}">
+                                    <h2 style="text-align: center">{{ minister.name }}</h2>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</div>

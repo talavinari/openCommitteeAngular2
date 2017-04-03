@@ -1,0 +1,80 @@
+<div *ngIf="bill"  class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <a *ngIf="bill.oknesset_url != ''" target= "_blank" href="{{ bill.oknesset_url}}">
+                <h1 title="שם ההצעה">
+                    {{ bill.name }}
+                </h1>
+            </a>
+            <h1 *ngIf="bill.oknesset_url == ''" title="שם ההצעה">
+                    {{ bill.name }}
+            </h1>
+        </div>
+            <div *ngIf="bill.passed != null" class="col-md-2 decision">
+                <h2 class="pull-left" title="החלטת הועדה">
+                    <span *ngIf="bill.passed" class="badge" style="background-color:green; vertical-align:middle; font-size:24px;">
+                עבר בועדה
+                    </span>
+                    <span *ngIf="!bill.passed" class="badge" style="background-color:red; vertical-align:middle; font-size:24px;">
+                    נפל בועדה   
+                    </span>
+                </h2>
+            </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 voteType">
+            <h4 class="bill-vote yay">
+                בעד
+            </h4>    
+            <div *ngFor="let minister of bill.yay" class="minister-photo">
+                <a routerLink='/minister/{{minister.id}}'>
+                        <img src="{{minister.photo_url}}" style="width: 75px; height: 110px">                                
+                </a>
+            </div>
+                <div *ngIf="bill.yay.length == 0" class="no-votes">
+                    אין הצבעות
+            </div>
+        </div>
+        <div class="col-md-4 voteType">
+            <h4 class="bill-vote nay">
+                נגד
+            </h4>    
+            <div *ngFor="let minister of bill.nay" class="minister-photo">
+                <a routerLink='/minister/{{minister.id}}'>
+                        <img src="{{minister.photo_url}}" style="width: 75px; height: 110px">                                
+                </a>
+            </div>
+                <div *ngIf="bill.nay.length == 0" class="no-votes">
+                    אין הצבעות
+            </div>
+        </div>
+        <div class="col-md-4 voteType">
+            <h4 class="bill-vote abstain">
+                נמנע
+            </h4>    
+            <div *ngFor="let minister of bill.sustained" class="minister-photo">
+                <a routerLink='/minister/{{minister.id}}'>
+                        <img src="{{minister.photo_url}}" style="width: 75px; height: 110px">                                
+                </a>
+            </div>
+                <div *ngIf="bill.sustained.length == 0" class="no-votes">
+                    אין הצבעות
+            </div>
+        </div>
+    </div>
+<hr/>
+
+    <div class="row">
+        <div class="col-md-12 voteType">
+            <h4>
+                אינם חושפים את הצבעתם
+            </h4>
+            <div *ngFor="let minister of bill.others" class="minister-photo missing">
+                <a routerLink='/minister/{{minister.id}}'>
+                    <img src="{{minister.photo_url}}" style="width: 75px; height: 110px">
+                </a>
+            </div>
+        </div>
+    </div>
+    </div> 

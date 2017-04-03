@@ -1,0 +1,73 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#committee-menu">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+                <img src="http://i61.tinypic.com/24ypx8k.jpg" class="logo" border="0">
+                </a>
+
+        </div>
+        <div class="collapse navbar-collapse" id="committee-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a routerLink="/bills" routerLinkActive="active">
+                        הצעות החוק
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/minister" routerLinkActive="active">
+                        השרים
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/meetings" routerLinkActive="active">
+                    ישיבות הועדה
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav hidden-sm hidden-xs">
+                <li>
+                    <form class="navbar-form" role="search">
+
+                        <div id="search" class="right-inner-addon">
+                            <i class="fa fa-search"></i>
+                            <input type="text" class="typeahead" data-provide="oksearch"
+                                   placeholder="חפש שרים או הצעות חוק"
+                                   style="width:500px;"
+                                   dir="rtl"
+                                     />
+                        </div>
+                    </form>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-left">
+                <li>
+                    <a routerLink="/about" routerLinkActive="active">
+                        אודות
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:info@hasadna.org.il">
+                        צור קשר
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>
+<div id="footer">
+    <div class="container">
+        <h4 class="text-muted">
+            <img src="https://www.oknesset.org/static/img/sadna30x30.png"
+                 alt="הסדנא לידע ציבורי"
+                 width="30" height="30">
+            <span>מפותח בתמיכת החממה של</span> <a href="http://www.hasadna.org.il">הסדנא לידע ציבורי</a>
+        </h4>
+    </div>
+</div>

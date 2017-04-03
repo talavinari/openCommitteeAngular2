@@ -1,0 +1,41 @@
+<div *ngIf="meeting" class="container">
+    <div class="row">
+        <div class="cards col-md-12">
+        <section class="card card-list card-list-latest compact">
+            <header>
+                <h2>
+                ישיבת הועדה שנערכה בתאריך {{ meeting.took_place }}
+                </h2>
+            </header>
+
+            <h3>
+                הצבעות השרים
+            </h3>
+
+        <!-- here starts inner html should be extracted to other html like meeting_ministers.html !-->    
+        <meeting-ministers [meetingId]="meeting.id"></meeting-ministers>
+    <h3>
+        הצעות החוק שעלו בישיבה
+    </h3>
+
+    <table class="table table-hover">
+        <thead>
+            <th>
+                שם ההצעה
+            </th>
+            <th>
+                החלטת הועדה
+            </th>
+        </thead>                
+        <tr  *ngFor="let bill of meeting.proposed_bills">
+            <td><a routerLink='/bills/{{bill.id}}'>{{bill.name}}</a></td>
+            <td class="minister-vote" [ngClass]="{yay: bill.passed,nay: !bill.passed}" >
+                {{true == bill.passed ? 'בעד' : 'נגד' }}
+            </td>
+        </tr>
+
+    </table>
+        </section>
+        </div>
+    </div>
+</div>

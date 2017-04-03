@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="cards col-md-12">
+            <section class="card card-list card-list-latest compact">
+                <header>
+                    <h2 title="שם ההצעה">
+                        הצעות חוק
+                    </h2>
+                </header>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th class="text-right">
+                            שם ההצעה
+                        </th>
+                        <th>
+                            החלטת הועדה
+                        </th>
+                    </tr>
+                    </thead> 
+                      <tr  *ngFor="let bill of bills">
+                        <td><a routerLink='/bills/{{bill.id}}'>{{bill.name}}</a></td>
+                        <td class="minister-vote" [ngClass]="{yay: bill.passed,nay: !bill.passed}" >
+                           {{true == bill.passed ? 'בעד' : 'נגד' }}
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+    </div>
+</div>

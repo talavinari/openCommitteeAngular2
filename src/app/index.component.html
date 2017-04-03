@@ -1,0 +1,81 @@
+<div class="container">
+        <div class="row">
+            <div class="cards col-md-12">
+                <section class="card card-list card-list-latest compact">
+                    <header>
+                        <h2>
+                            רקע
+                        </h2>
+                    </header>
+                    <ul>
+                        <li>
+                            ועדת השרים לענייני חקיקה היא המקום בו הממשלה מחליטה האם היא תומכת או מתנגדת להצעות חוק.
+                             כל הצעות החוק עוברות דרך הועדה, וללא תמיכת הממשלה אין להצעת החוק כמעט שום סיכוי לעבור בכנסת.
+                             הועדה מתנהלת בחוסר שקיפות חריג, כך שכל המידע באתר נמסר מרצונם החופשי של שרים החברים בועדה ותומכים בשקיפות.
+                            אנו משתפים פעולה עם מיזם <a href="http://shkifut.info" target="_blank">׳מאה ימים של שקיפות׳</a> שמדי שבוע מבקשים מהשרים לחשוף את הצבעותיהם בצורה וולנטארית.
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+
+    <div *ngIf="lastMeeting" class="row">
+        <div class="cards col-md-12">
+            <section class="card card-list card-list-latest compact">
+                <header>
+                    <h2>
+                    ישיבה אחרונה - {{ lastMeeting.took_place }}
+                    </h2>
+                </header>
+                <meeting-ministers [showPlusButton]="true" [meetingId]="lastMeeting.id"></meeting-ministers>
+            </section>
+        </div>
+    </div>
+
+
+        <div class="row">
+            <div class="cards col-md-12">
+                <section class="card card-list card-list-latest compact">
+                    <header>
+                        <h2>
+                            הצעות חוק אחרונות
+                        </h2>
+                    </header>
+
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th class="text-right">
+                                שם ההצעה
+                            </th>
+                            <th>
+                                החלטת הועדה
+                            </th>
+                        </tr>
+                        </thead>
+                            <tr *ngFor="let bill of bills">
+                                <td><a routerLink='/bills/{{bill.id}}'>{{bill.name}}</a></td>
+                                <td class="minister-vote" [ngClass]="{yay: bill.passed,nay: !bill.passed}" >
+                                        {{true == bill.passed ? 'בעד' : 'נגד' }}
+                                </td>
+                            </tr>
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td>
+                                <div class="pull-left">
+                                    <a routerLink='/bills/' class="btn btn-primary pull-left" role="button">
+                                        עוד
+                                        <span class="fa fa-plus"></span>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </table>
+                </section>
+            </div>
+
+        </div>
+    </div>
