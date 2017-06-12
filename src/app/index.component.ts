@@ -25,11 +25,11 @@ export class IndexComponent implements OnInit {
   bills : Bill[];      
   
   getBills(): void {
-    this.billService.getBills().then(bills => this.bills = bills);
+    this.billService.getLastBills().then(bills => this.bills = bills);
   }
 
   ngOnInit(): void {    
-     this.meetingService.getLastMeeting().then(last => this.lastMeeting = last);
+     this.meetingService.getLastMeetings().then(lastMeetings => this.lastMeeting = lastMeetings[0]);
      this.getBills();
   }
       
