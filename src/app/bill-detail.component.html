@@ -29,7 +29,8 @@
             </h4>    
             <div *ngFor="let minister of bill.yay" class="minister-photo">
                 <a routerLink='/minister/{{minister.id}}'>
-                        <img src="{{minister.photo_url}}" style="width: 75px; height: 110px">                                
+                        <img src="{{minister.photo_url}}" style="width: 75px; height: 110px">
+                    {{minister.name}}                   
                 </a>
             </div>
                 <div *ngIf="bill.yay.length == 0" class="no-votes">
@@ -42,7 +43,8 @@
             </h4>    
             <div *ngFor="let minister of bill.nay" class="minister-photo">
                 <a routerLink='/minister/{{minister.id}}'>
-                        <img src="{{minister.photo_url}}" style="width: 75px; height: 110px">                                
+                        <img src="{{minister.photo_url}}" style="width: 75px; height: 110px">
+                        {{minister.name}}                                
                 </a>
             </div>
                 <div *ngIf="bill.nay.length == 0" class="no-votes">
@@ -55,7 +57,8 @@
             </h4>    
             <div *ngFor="let minister of bill.sustained" class="minister-photo">
                 <a routerLink='/minister/{{minister.id}}'>
-                        <img src="{{minister.photo_url}}" style="width: 75px; height: 110px">                                
+                        <img src="{{minister.photo_url}}" style="width: 75px; height: 110px">
+                        {{minister.name}}                                
                 </a>
             </div>
                 <div *ngIf="bill.sustained.length == 0" class="no-votes">
@@ -73,6 +76,7 @@
             <div *ngFor="let minister of bill.others" class="minister-photo missing">
                 <a routerLink='/minister/{{minister.id}}'>
                     <img src="{{minister.photo_url}}" style="width: 75px; height: 110px">
+                    {{minister.name}}
                 </a>
             </div>
         </div>
