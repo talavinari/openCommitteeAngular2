@@ -1,6 +1,6 @@
 <div *ngIf="bill"  class="container">
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-12" style="text-align: center">
             <a *ngIf="bill.oknesset_url != ''" target= "_blank" href="{{ bill.oknesset_url}}">
                 <h1 title="שם ההצעה">
                     {{ bill.name }}
@@ -10,8 +10,8 @@
                     {{ bill.name }}
             </h1>
         </div>
-            <div *ngIf="bill.passed != null" class="col-md-2 decision">
-                <h2 class="pull-left" title="החלטת הועדה">
+            <div *ngIf="bill.passed != null" class="col-md-12 decision">
+                <h2 style="margin-top: 0px" title="החלטת הועדה">
                     <span *ngIf="bill.passed" class="badge" style="background-color:green; vertical-align:middle; font-size:24px;">
                 עבר בועדה
                     </span>
@@ -20,6 +20,10 @@
                     </span>
                 </h2>
             </div>
+    </div>
+
+    <div *ngIf="bill.meeting != null" class="row">
+        <div style="font-size: 20px; text-align: center;" class="col-md-12">עלה להצבעה בישיבה שנערכה ב-<a routerLink='/meetings/{{bill.meeting.id}}'>{{ bill.meeting.took_place }}</a></div>
     </div>
 
     <div class="row">
