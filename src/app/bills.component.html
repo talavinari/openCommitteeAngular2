@@ -17,15 +17,21 @@
                             החלטת הועדה
                         </th>
                     </tr>
-                    </thead> 
-                      <tr  *ngFor="let bill of bills">
+                    </thead>
+                      <tr  *ngFor="let bill of asyncbills | async | paginate: { id: 'server', itemsPerPage: 10, currentPage: pageNum, totalItems: total }">
                         <td><a routerLink='/bills/{{bill.id}}'>{{bill.name}}</a></td>
                         <td class="minister-vote" [ngClass]="{yay: bill.passed,nay: !bill.passed}" >
                            {{true == bill.passed ? 'בעד' : 'נגד' }}
                         </td>
-                    </tr>
+                      </tr>
                 </table>
             </section>
-        </div>
+        </div>    
     </div>
+ 
+<div class="has-text-centered">
+    <div class="spinner" [ngClass]="{ 'hidden': !loading }"></div>
+    <pagination-controls [previousLabel]="previousLabel" [nextLabel]="lg" (pageChange)="getPage($event)" id="server"></pagination-controls>
+</div>
+
 </div>

@@ -6,9 +6,6 @@ import { MeetingService }         from './meeting.service';
 import { BillService }         from './bill.service';
 import { MinisterService }         from './minister.service';
 
-
-
-
 import { BillDetailComponent } from './bill-detail.component';
 import { MinisterDetailComponent} from './minister-detail.component';
 import {MeetingDetailComponent} from './meeting-detail.component';
@@ -21,6 +18,8 @@ import { AppRoutingModule }     from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
+import {Ng2PaginationModule} from 'ng2-pagination';
 import {
   NgModule,
   ApplicationRef
@@ -84,6 +83,7 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule, 
+    Ng2PaginationModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
